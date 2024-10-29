@@ -8,7 +8,7 @@ covering foundational concepts as well as practical applications through code ex
 
 ### Articles
 
-1. [Part 1: Blazor for Managers](manager.md)
+1. [Part 1: Blazor for Managers](ForManagers/readme.md)
    This article is tailored for managers seeking to understand how Blazor fits into broader project goals. 
    It covers the high-level benefits of Blazor, such as reduced development time, the ability to leverage existing .NET skills, and its potential for delivering a seamless user experience.
 
