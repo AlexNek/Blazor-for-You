@@ -146,7 +146,7 @@ Blazor, particularly in its hybrid mode, can be a strong choice for many web dev
 2. **Cross-Platform Development:** If you need to build applications that run on  web, desctop and mobile devices, Blazor can provide a unified codebase and development experience. This can reduce development time and maintenance costs.
 
 3. **Single-Page Applications (SPAs):** Blazor is well-suited for building SPAs, as it allows you to render components on the client-side, providing a more responsive and interactive user experience.
-
+>Note: Blazor can be an effective choice for moderately complex SPAs, especially when you can leverage existing .NET expertise or codebases. However, for highly complex SPAs with stringent performance and scalability needs, established JavaScript frameworks may still provide more flexibility and optimized solutions.
 4. **Existing .NET Codebases:** If you have an existing .NET codebase, Blazor can be a natural extension. You can leverage your existing .NET skills and libraries to build web applications.
 
 5. **Data-Driven Applications:** Blazor's data binding features make it easy to work with data and update the UI automatically when data changes. This is particularly useful for applications that display and manipulate large datasets.
