@@ -48,6 +48,9 @@ Here are some practical examples demonstrating Blazor's capabilities:
 #### UI Components and Libraries
 - **[Blazor.QrCode](https://github.com/AlexNek/Blazor.QrCode)**  
   A library for QR code generation directly within Blazor, highlighting Blazor's flexibility for server- and client-side QR code creation.
+  - **[Blazor.SsrButton](https://github.com/AlexNek/Blazor.SsrButton)**  
+  A button component for Blazor applications. It supports both server-side rendering (SSR) and client-side rendering, making it ideal for use in various Blazor project types.
+
 
 - **[BlazorSortableList](https://github.com/AlexNek/BlazorSortableList)**  
   A sortable list component using SortableJS, showing how Blazor can leverage JavaScript libraries to create dynamic UI elements.
