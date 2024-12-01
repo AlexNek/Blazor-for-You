@@ -10,8 +10,7 @@ covering foundational concepts as well as practical applications through code ex
 
 1. **Part 1: Blazor for Managers ([EN](ForManagers/readme.md), [DE version](ForManagers/readme-de.md))**: This article helps non-technical stakeholders understand Blazor's benefits, including reduced development time, leveraging .NET skills, and delivering seamless user experiences.
 
-2. **Part 2: Blazor for Developers ([EN](ForMDevelopers/readme.md), [DE version](ForMDevelopers/readme-de.md))**
-   Focused on the technical aspects, this article dives into Blazor from a developer's perspective.
+2. **Part 2: Blazor for Developers ([EN](ForDevelopers/readme.md), [DE version](ForDevelopers/readme-de.md))** Focused on the technical aspects, this article dives into Blazor from a developer's perspective.
    It covers best practices, architecture considerations, and explores how Blazor enables full-stack C# development on the web, simplifying the development workflow and enhancing productivity.
 
 # How to use
