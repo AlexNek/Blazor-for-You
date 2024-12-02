@@ -22,11 +22,11 @@ As the foundation of rendering, these features set the stage for understanding t
 
 | Factor                  | SSR (Static Server Render) | Interactive Server | Interactive Client  |
 |--------------------------|----------------------------|--------------------|---------------------|
-| **Initial Load Performance** | Faster initial load: Prerendered HTML is sent immediately. | Moderate: Initial load includes some interactivity setup. | Slower: Requires loading and initializing client-side resources. |
-| **User Interaction** | Limited: Static content only until browser-side rendering begins. | Partial: Server-driven interactivity with potential latency. | Full: Immediate client-side interactivity once client-side resources loaded. |
-| **Dynamic Content Updates** | Not supported: Requires full page refresh. | Supported via server roundtrips. | Fully supported: Real-time updates without page refresh. |
-| **Event Handling** | Not supported on initial render. | Handled on server with network latency. | Handled immediately on client. |
-| **OnAfterRenderAsync** | Not triggered: Only invoked after interactive rendering. | Triggered on server with potential network latency to client | Fully supported: Immediate execution in browser without latency. |
+| **Initial Load Performance** | **Faster initial load**: Prerendered HTML is sent immediately | **Moderate**: Initial load includes some interactivity setup | **Slower**: Requires loading and initializing client-side resources |
+| **User Interaction** | **Limited**: Static content only until browser-side rendering begins. | **Partial**: Server-driven interactivity with potential latency | **Full**: Immediate client-side interactivity once client-side resources loaded |
+| **Dynamic Content Updates** | **Not supported**: Requires full page refresh | **Supported** via server roundtrips | **Fully supported**: Real-time updates without page refresh |
+| **Event Handling** | **Not supported** on initial render | **Handled** on server with network latency | **Handled immediately** on client |
+| **OnAfterRenderAsync** | **Not triggered**: Only invoked after interactive rendering | **Triggered** on server with potential network latency to client | **Fully supported**: Instant in-browser execution with no latency once client-side resources are loaded |
 
 
 ---
@@ -37,9 +37,9 @@ State management and navigation are fundamental aspects of building interactive 
 
 | Factor                  | SSR (Static Server Render) | Interactive Server | Interactive Client  |
 |--------------------------|----------------------------|--------------------|---------------------|
-| **State Management** | Limited: Relies on server-side solutions like session storage. | Supported: State is managed on the server, often using SignalR for real-time updates. | Fully supported: Rich client-side state management options using frameworks like Redux or MobX. |
-| **State Persistence** | Not supported: State must be reloaded on each request. | Supported: State persists during the session on the server. | Fully supported: Client-side state persistence across interactions, even offline. |
-| **Navigation Manager** | Limited: Can only navigate via server-side redirection. | Supported: Allows client-side navigation with SPA-like functionality using SignalR. | Fully supported: Supports client-side navigation with full SPA functionality. |
+| **State Management** | **Limited**: Relies on server-side solutions like session storage | Supported: State is managed on the server, often using SignalR for real-time updates | Fully supported: Rich client-side state management options using frameworks like Redux or MobX |
+| **State Persistence** | **Not supported**: State must be reloaded on each request | Supported: State persists during the session on the server | **Fully supported**: Client-side state persistence across interactions, even offline |
+| **Navigation Manager** | **Limited**: Can only navigate via server-side redirection | **Supported**: Allows client-side navigation with SPA-like functionality using SignalR | **Fully supported**: Supports client-side navigation with full SPA functionality |
 
 **Note:**
 
