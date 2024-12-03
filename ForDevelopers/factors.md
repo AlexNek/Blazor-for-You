@@ -37,24 +37,24 @@ State management and navigation are fundamental aspects of building interactive 
 
 | Factor                  | SSR (Static Server Render) | Interactive Server | Interactive Client  |
 |--------------------------|----------------------------|--------------------|---------------------|
-| **State Management** | **Limited**: Relies on server-side solutions like session storage | Supported: State is managed on the server, often using SignalR for real-time updates | Fully supported: Rich client-side state management options using frameworks like Redux or MobX |
-| **State Persistence** | **Not supported**: State must be reloaded on each request | Supported: State persists during the session on the server | **Fully supported**: Client-side state persistence across interactions, even offline |
+| **State Management** | **Limited**: Relies on server-side solutions like in-memory storage, distributed caching, databases, etc. | **Supported**: State is managed on the server, often using SignalR for real-time updates | **Fully supported**: Rich client-side state management options using frameworks like Redux or MobX |
+| **State Persistence** | **Limited**: State can be persisted using various storage mechanisms on the server. This allows for session state management across multiple requests, even though each request is stateless. | **Supported**: State persists during the session on the server | **Fully supported**: Client-side state persistence across interactions, even offline |
 | **Navigation Manager** | **Limited**: Can only navigate via server-side redirection | **Supported**: Allows client-side navigation with SPA-like functionality using SignalR | **Fully supported**: Supports client-side navigation with full SPA functionality |
 
 **Note:**
 
 1. **State Management:**
-   - SSR relies on server-side mechanisms such as sessions, which can be limiting for dynamic applications.
+   - SSR relies on server-side mechanisms such as in-memory storage, distributed caching, databases, etc, which can be limiting for dynamic applications. Components are rendered as static HTML.
    - Interactive Server manages state on the server, providing real-time updates but requiring a constant connection.
    - Interactive Client offers robust client-side state management with various libraries and tools.
 
 2. **State Persistence:**
-   - SSR requires reloading state with each request due to its stateless nature.
+   - SSR requires reloading state with each request due to its stateless nature. It is possible to persist state using various storage mechanisms on the server. Any state information must be reloaded with each request, which can lead to inefficiencies and increased load times.
    - Interactive Server maintains state during user sessions, which can enhance user experience.
    - Interactive Client can persist state across sessions and even support offline scenarios.
 
 3. **Navigation Manager:**
-   - SSR typically handles navigation through full page reloads.
+   - SSR typically handles navigation through full page reloads. See [.NET 9 issue](nm9.md) too.
    - Interactive Server can provide smoother navigation experiences similar to Single Page Applications (SPAs) using technologies like SignalR.
    - Interactive Client fully supports SPA navigation, offering seamless transitions without full page reloads.
 
