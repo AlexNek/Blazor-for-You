@@ -1,8 +1,8 @@
-## Handling `NavigationManager.NavigateTo()` Exceptions in .NET 9 Blazor SSR
+## Handling `NavigationManager.NavigateTo()` Exceptions in Blazor SSR
 
 ### Understanding the Issue
 
-In .NET 9 Blazor Server-Side Rendering (SSR), using `NavigationManager.NavigateTo()` can raise exceptions due to its current limitations in SSR mode. This issue is documented in the following GitHub discussions:  
+In .NET 8/9 Blazor Server-Side Rendering (SSR), using `NavigationManager.NavigateTo()` can raise exceptions due to its current limitations in SSR mode. This issue is documented in the following GitHub discussions:  
 - [NavigationManager.NavigateTo() Inconsistent Behavior](https://github.com/dotnet/aspnetcore/issues/53996)  
 - [NavigationException raised when using NavigationManager.NavigateTo upon form post in SSR](https://github.com/dotnet/aspnetcore/issues/50478)
 

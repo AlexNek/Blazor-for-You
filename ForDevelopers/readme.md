@@ -1,12 +1,12 @@
 # Blazor for developers
 
 ## Overview
-In this guide, we won't go over another basic Blazor tutorial. Many resources already cover that topic. Instead, we'll focus on specific challenges that developers might face when using the new rendering modes in .NET 8 and later.
+In this article, we won't go over another basic Blazor tutorial. Many resources already cover that topic. Instead, we'll focus on specific challenges that developers might face when using the new rendering modes in .NET 8 and later.
 
 The article is not straightforward because there is a lot of information in it and I have tried to break it down.
 ![image](images/article.png)
 
-For additional examples, visit the [Examples Repository](https://github.com/AlexNek/BlazorNet8PlusExamples).  
+For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/readme.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
 
 ## Introduction to Blazor's New Rendering Modes
 
@@ -14,7 +14,7 @@ Blazor’s gotten some cool updates recently, giving developers new ways to rend
 
 Let’s break it down:  
 
-- **Static (SSR)**: Think of this as delivering ready-made content directly to your users. The server sends fully-rendered HTML, so pages load quickly and look great for search engines. This is perfect for scenarios where speed and SEO matter most, like public-facing websites or blogs.
+- **Static (SSR)**: Think of this as delivering ready-made content directly to your users. The server sends fully-rendered HTML, so pages load quickly and look great for search engines. This is perfect for scenarios where speed and SEO matter most, like public-facing websites or blogs. 
 
 - **Interactive (Server or Client)**: When your app needs to feel responsive and dynamic, interactive rendering steps in. It starts by sending pre-rendered content for a quick load, but then shifts into either client-side updates using WebAssembly or server-driven updates with Blazor Server. It’s ideal for dashboards or apps requiring constant user interaction.  
 
@@ -32,7 +32,7 @@ Deciding how your app should render isn’t just about a single choice—it’s 
 
 Blazor doesn’t lock you into one rendering strategy for the entire application. Instead, you can fine-tune it at three different levels:  
 
-- **Application Level:** Set a default render mode for the whole app. For instance, if most pages need fast load times and SEO, SSR makes sense as the global default.  
+- **Application Level:** Define a default rendering strategy for the entire application. For example, if the majority of your pages prioritize quick loading and strong SEO performance, adopting SSR as the global default would be a practical choice. Additionally, you can fine-tune rendering approaches at other levels to suit specific needs.
 
 - **Page Level:** Override the app-wide setting for specific pages. A page with complex interactivity, like a dashboard or live chat interface, might use an Interactive mode to ensure real-time updates.  
 
@@ -56,17 +56,18 @@ Variable modes are especially useful for apps where different parts serve very d
 When choosing between SSR and Interactive modes, it’s essential to evaluate the specific needs of your application. Factors such as performance, scalability, user experience, and operational requirements play a crucial role in determining the best approach. You can find a detailed comparison of these core features, highlighting the capabilities, limitations, and scenarios best suited for each render mode **--> [here](factors.md) <--**.
 
 #### Quick Comparison: SSR, Interactive, and Hybrid Modes
+Here’s a **Quick Comparison** table summarizing the key differences between **SSR**, **Interactive**, and **Hybrid** modes. 
 
 | Factor  | SSR (Static Server Render) | Interactive (Server) | Interactive (Client) | Hybrid (Auto)|
 |---------|----------------------------|----------------------|----------------------|--------------|
-| **Rendering Location**          | Server-side only                                                    | Server-side for initial load; client-side for interactivity (via Blazor Server) | Client-side rendering after initial server-side load (via WebAssembly) | Server-side for initial load; transitions to client-side (WebAssembly or Blazor Server) as needed |
+| **Rendering Location**          | Server-side only                                                    | Server-side for initial load; browser client-side for interactivity (via Blazor Server) | Client-side rendering after initial server-side load (via WebAssembly) | Server-side for initial load; transitions to client-side (WebAssembly or Blazor Server) as needed |
 | **Initial Load Speed**          | Fast (pre-rendered HTML sent directly)                             | Moderate (some setup needed for interactivity)           | Moderate (initial WebAssembly load time, but fast after that) | Fast (initially SSR, then client-side takes over)                |
 | **Interactivity**               | Limited (static content until client-side takes over, if applicable)               | Full interactivity after client-side resources are loaded (via Blazor Server) | Full interactivity after the client-side resources are loaded (via WebAssembly) | Full interactivity after server-side initial load, with a transition to client-side interactivity |
 | **SEO**                         | Excellent (fully rendered content sent to the client)              | Moderate (dynamic content requires additional handling for SEO)  | Moderate (dynamic content requires additional handling for SEO) | Good (initial SSR provides SEO benefit, but dynamic content requires client-side handling) |
 | **State Management**            | Server-side (no client-side state)                                 | Server-side (SignalR for real-time updates) | Client-side (client manages most state via WebAssembly) | Mix of server and client-side state (depends on transition) |
 | **Use Case**                    | Best for static or mostly-static websites (e.g., blogs, news sites) | Best for real-time dashboards, apps with high user interactivity | Best for single-page apps or apps requiring client-side interactivity and offline support | Best for apps needing both quick load and dynamic features (e.g., e-commerce) |
 | **Scalability**                 | Limited by server capacity (every user request requires server processing and resources) | Scales better than SSR by reducing server load with server-side interactivity, but still relies on server for dynamic updates and socket connections for SignalR | Scales very well since most of the processing happens client-side, reducing server load significantly | Scales well, especially with client-side processing once the initial page is loaded, reducing server dependency |
-| **Offline Support**             | Limited (requires a server connection)  |Limited (depends on server connection for real-time interactions)     | Full support for client-side with progressive enhancement  | Full support for client-side with progressive enhancement        |
+| **Offline Support**             | Limited (requires a server connection)  |Limited (depends on server connection for real-time interactions)     | Full support for client-side with progressive enhancement  | Initially limited, then full support with client-side progressive enhancement after transition        |
 
 
 ### Developer Gotchas: Render Mode Pitfalls
@@ -79,7 +80,7 @@ Pay attention to these important points:
 | **OnAfterRenderAsync**  | Not Called | Called immediately after server rendering | Called immediately after client rendering       |
 | **HttpContext Access**  | Fully available during server-side prerendering  | Limited to server-side logic.            | Not available                          |
 | **NavigationManager**   | Limited to server-driven navigation                                 | Fully supported for SPA-like behavior  | Fully supported for SPA-like behavior  |
-| **JavaScript Interop**  | Limited to queued execution post-transition                        | Fully supported                         | Fully supported                        |
+| **JavaScript Interop** | Limited (static JS possible, no dynamic interop) | Available after initial load (via SignalR) | Fully available (after WASM load) | Initially limited, then fully available after transition to client-side rendering |
 | **RenderFragment**      | Static only during SSR  | Fully supported for page and application wide render mode | Fully supported for page and application wide render mode                                     |
 | **Error Handling**      | Displays fallback content or error pages                            | Requires custom error boundaries   | Requires custom error boundaries                    |
 | **DOM Cleanup Tasks**   | May need custom handling as DOM might not exist during disposal | Fully supported                                    | Fully supported                                  |
@@ -128,11 +129,11 @@ When deciding where to place components in a Blazor application, consider the se
 
 3. **Static Components**:
    - Components without rendering mode (default SSR) and without specific service connection could be placed everywhere.
-Here’s a **Quick Comparison** table summarizing the key differences between **SSR**, **Interactive**, and **Hybrid** modes. This will give your readers an easy reference to quickly review the main points of each rendering mode.
+
 
 ### Service Placement
 
-When developing a Blazor application, the placement and registration of services is crucial for ensuring optimal performance, security, and maintainability. 
+When developing a Blazor application, the placement and registration of services is also crucial.
 
 #### Server-Side Services
 Server-side services are ideal for handling sensitive data and business logic securely. These services should always be registered on the server to minimize exposure to potential vulnerabilities. They can manage tasks such as authentication, data access, and any operations requiring secure processing. 
@@ -147,6 +148,7 @@ Transient and scoped services can be registered on either the server or client b
 
 This flexibility allows developers to optimize resource usage and ensure that each service is placed where it will be most effective.
 
+
 #### Singleton Services
 Singleton services are best registered on the server to maintain a single instance throughout the application's lifecycle. This approach ensures consistent behavior across sessions and reduces overhead by avoiding multiple instances of the same service.
 
@@ -160,10 +162,19 @@ In Blazor, **singleton services** are used to maintain a single instance through
 
 - **Prerendering Considerations:** If prerendering is enabled, the component is first rendered on the server before being sent to the client. During this phase, **server-side singleton services** can be used, but **client-side services** won’t be available until the page fully loads on the client. This means that during the early phase, some services may not be accessible, so you must ensure your app can handle this by relying on server-side services until the client-side is ready.
 
-- **Transitioning Between Render Modes:**  When switching from SSR to Interactive Server or Interactive Client modes, **server-side singleton services** are available throughout the app. But when moving to client-side rendering (like Blazor WebAssembly), those server-side services are no longer directly accessible. To interact with server data, you’ll need to use APIs or other methods.
+- **Transitioning Between Render Modes:** When switching from SSR to Interactive Server or Interactive Client modes, **server-side singleton services** remain available throughout the app. However, when moving to client-side rendering (like Blazor WebAssembly), those server-side services are no longer directly accessible. To interact with server data, you’ll need to use APIs or other methods.
 
-- **State Management:**  Singleton services can help manage app state, but you need to make sure state is transferred or synchronized properly when switching between server-side and client-side rendering. If this isn’t done, state can get out of sync, causing errors or inconsistent behavior.
+- **State Management:** Singleton services can help manage app state, but you need to ensure that state is transferred or synchronized properly when switching between server-side and client-side rendering. If this isn’t done, state can get out of sync, causing errors or inconsistent behavior.
 
+### Important Considerations for Developers
+
+- **Scalability and Resource Usage:** When using singleton services in Blazor Server applications with many concurrent users, developers must be cautious about resource consumption and thread safety. Singleton services are shared across all user sessions, which can lead to increased memory usage and potential performance bottlenecks.
+
+- **Thread Safety:** Since multiple users can access the same singleton service simultaneously, it’s crucial to implement thread-safe practices to prevent data inconsistencies.
+
+- **State Synchronization:** Changes made in a singleton service affect all users. Developers should implement mechanisms to ensure that state changes are communicated across different user sessions effectively.
+
+- **Lifecycle Management:** Singleton services persist for the entire application lifetime. Proper cleanup and resource management are necessary to avoid holding onto resources longer than needed.
 
 
 ## Helpful links
@@ -172,6 +183,7 @@ If you're looking to dive deeper into Blazor and the various rendering modes, he
 - [ASP.NET Core Blazor render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0)
 - [Blazor .NET 8 Server-side Rendering (SSR)](https://akifmt.github.io/dotnet/2024-01-16-blazor-.net8-server-side-rendering-ssr/)
 - [Everything New in .NET 9: The Ultimate Developer's Guide](https://dev.to/bytehide/everything-new-in-net-9-the-ultimate-developers-guide-331e)
+- [Black Belt Blazor - Differences between Interactive Blazor and Static Blazor](https://github.com/devessenceinc/BlackBeltBlazor)
 - [Blazor and .NET 8: How I Built a Fast and Flexible Website](https://jeffreyfritz.com/2024/02/blazor-and-net-8-how-i-build-a-fast-and-flexible-website/)
 - [Build your first web app with ASP.NET Core using Blazor](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro)
 - [Creating A Step-By-Step End-To-End Database Server-Side Blazor Application](https://blazorhelpwebsite.com/ViewBlogPost/34)
