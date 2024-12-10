@@ -6,7 +6,7 @@ In this article, we won't go over another basic Blazor tutorial. Many resources 
 The article is not straightforward because there is a lot of information in it and I have tried to break it down.
 ![image](images/article.png)
 
-For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/readme.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
+For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/README.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
 
 ## Introduction to Blazor's New Rendering Modes
 
