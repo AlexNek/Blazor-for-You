@@ -55,7 +55,7 @@ Variable Modi sind besonders nützlich für Apps, bei denen verschiedene Teile s
 
 ### Faktoren bei der Wahl des Modus
 
-Bei der Wahl zwischen SSR und Interaktiv-Modi ist es wichtig, die spezifischen Anforderungen Ihrer Anwendung zu bewerten. Faktoren wie Leistung, Skalierbarkeit, Benutzererfahrung und betriebliche Anforderungen spielen eine entscheidende Rolle bei der Bestimmung des besten Ansatzes. Eine detaillierte Vergleichstabelle dieser Kernmerkmale, die die Fähigkeiten, Einschränkungen und die besten Szenarien für jeden Render-Modus hervorhebt, finden Sie **--> [hier](factors.md) <--**.
+Bei der Wahl zwischen SSR und Interaktiv-Modi ist es wichtig, die spezifischen Anforderungen Ihrer Anwendung zu bewerten. Faktoren wie Leistung, Skalierbarkeit, Benutzererfahrung und betriebliche Anforderungen spielen eine entscheidende Rolle bei der Bestimmung des besten Ansatzes. Eine detaillierte Vergleichstabelle dieser Kernmerkmale, die die Fähigkeiten, Einschränkungen und die besten Szenarien für jeden Render-Modus hervorhebt, finden Sie **--> [hier](factors-de.md) <--**.
 
 #### Schneller Vergleich: SSR, Interaktiv und Hybrid Modi
 Hier ist eine **Schnellvergleich**-Tabelle, die die wichtigsten Unterschiede zwischen den **SSR**, **Interaktiv** und **Hybrid**-Modi zusammenfasst. 

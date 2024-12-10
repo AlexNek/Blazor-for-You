@@ -7,7 +7,7 @@ In this article, we won't go over another basic Blazor tutorial. Many resources 
 The article is not straightforward because there is a lot of information in it and I have tried to break it down.
 ![image](images/article.png)
 
-For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/readme-de.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
+For examples, visit the [example repository](https://github.com/AlexNek/BlazorNet8PlusExamples). You can also find a detailed [description of the examples](https://github.com/AlexNek/BlazorNet8PlusExamples/blob/master/README.md). Alternatively, you can jump straight to the demos: [Demo 1](https://blazornet9rendermodes.azurewebsites.net) or [Demo 2](https://blazorauthentication202412.azurewebsites.net).
 
 ## Introduction to Blazor's New Rendering Modes
 
@@ -54,7 +54,7 @@ Variable modes are especially useful for apps where different parts serve very d
 
 ### Factors to Consider When Choosing a Mode  
 
-When choosing between SSR and Interactive modes, it’s essential to evaluate the specific needs of your application. Factors such as performance, scalability, user experience, and operational requirements play a crucial role in determining the best approach. You can find a detailed comparison of these core features, highlighting the capabilities, limitations, and scenarios best suited for each render mode **--> [here](factors-de.md) <--**.
+When choosing between SSR and Interactive modes, it’s essential to evaluate the specific needs of your application. Factors such as performance, scalability, user experience, and operational requirements play a crucial role in determining the best approach. You can find a detailed comparison of these core features, highlighting the capabilities, limitations, and scenarios best suited for each render mode **--> [here](factors.md) <--**.
 
 #### Quick Comparison: SSR, Interactive, and Hybrid Modes
 Here’s a **Quick Comparison** table summarizing the key differences between **SSR**, **Interactive**, and **Hybrid** modes. 
