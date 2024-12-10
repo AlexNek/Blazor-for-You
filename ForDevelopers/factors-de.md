@@ -143,7 +143,7 @@ Mit der Sicherheit im Hinterkopf ist die Softwareverteilung und das Hosting der 
 |----------------------------------|----------------------------------|---------------------|---------------------|
 | **Hosting-Anforderungen**        | Erfordert einen leistungsfähigen Server, um SSR-Anfragen zu verarbeiten (z. B. ASP.NET Core) | Erfordert einen Server, um Echtzeit-Interaktionen zu verwalten (z. B. SignalR) | Kann vollständig auf statischen Hosting-Plattformen laufen |
 | **Edge- oder CDN-Unterstützung** | Eingeschränkt: Erfordert einen Ursprungsserver für dynamisches Rendering. Moderne CDNs können einige dynamische Inhalte zwischenspeichern, sind jedoch weiterhin auf Serververarbeitung angewiesen | Eingeschränkt: Echtzeit-Updates hängen von Serververbindungen ab; moderne CDNs können die Bereitstellung beschleunigen | Vollständig unterstützt: Statische Ressourcen können global zwischengespeichert werden, während dynamische Inhalte clientseitig verarbeitet werden |
-| **[Progressive Enhancement](prog-enh-de.md)** | Vollständig unterstützt: Funktioniert auch in Umgebungen [ohne JavaScript](prog-eng-js-de.md) | Teilweise unterstützt: Erfordert JavaScript für Echtzeit-Interaktionen | Erfordert JavaScript für Funktionalitäten über den initialen Ladeprozess hinaus |
+| **[Progressive Enhancement](prog-enh-de.md)** | Vollständig unterstützt: Funktioniert auch in Umgebungen [ohne JavaScript](prog-enh-js-de.md) | Teilweise unterstützt: Erfordert JavaScript für Echtzeit-Interaktionen | Erfordert JavaScript für Funktionalitäten über den initialen Ladeprozess hinaus |
 
 **Anmerkungen:**
 
