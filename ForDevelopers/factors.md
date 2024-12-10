@@ -134,7 +134,7 @@ With security in mind, deployment and hosting become the next logical step, cove
 |--------------------------|----------------------------|--------------------|---------------------|
 | **Hosting Requirements**     | Requires a capable server to handle SSR requests (e.g., ASP.NET Core) | Requires a server to manage real-time interactions (e.g., SignalR) | Can run entirely on static hosting platforms |
 | **Edge or CDN Support**      | **Limited**: Requires origin server for dynamic rendering. Modern CDNs can cache some dynamic content but are still reliant on server processing | **Limited**: Real-time updates depend on server connections; modern CDNs can help accelerate delivery | **Fully supported**: Static resources can be cached globally, while dynamic content is processed client-side |
-| [**Progressive Enhancement**](prog-enh.md)  | **Fully supported**: Works even in environments [without JavaScript](prog-eng-js) | **Partially supported**: Requires JavaScript for real-time interactions. | Requires JavaScript for functionality beyond initial load. |
+| [**Progressive Enhancement**](prog-enh.md)  | **Fully supported**: Works even in environments [without JavaScript](prog-eng-js.md) | **Partially supported**: Requires JavaScript for real-time interactions. | Requires JavaScript for functionality beyond initial load. |
 
 **Notes:**
 

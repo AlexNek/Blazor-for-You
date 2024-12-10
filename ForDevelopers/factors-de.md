@@ -50,7 +50,7 @@ Die Zustandsverwaltung und Navigation sind grundlegende Aspekte beim Erstellen i
    - Der interaktive Client kann den Zustand über Sitzungen hinweg persistent machen und sogar Offline-Szenarien unterstützen.
 
 3. **Navigation Manager:**
-   - SSR behandelt die Navigation in der Regel durch vollständige Seitenneuladungen. Siehe auch [.NET 9-Problem](nm9.md).
+   - SSR behandelt die Navigation in der Regel durch vollständige Seitenneuladungen. Siehe auch [.NET 9-Problem](nm9-de.md).
    - Der interaktive Server kann glattere Navigationserlebnisse ähnlich wie Single Page Applications (SPAs) mit Technologien wie SignalR bieten.
    - Der interaktive Client unterstützt vollständig die SPA-Navigation und bietet nahtlose Übergänge ohne vollständige Seitenneuladungen.
 
@@ -143,7 +143,7 @@ Mit der Sicherheit im Hinterkopf ist die Softwareverteilung und das Hosting der 
 |----------------------------------|----------------------------------|---------------------|---------------------|
 | **Hosting-Anforderungen**        | Erfordert einen leistungsfähigen Server, um SSR-Anfragen zu verarbeiten (z. B. ASP.NET Core) | Erfordert einen Server, um Echtzeit-Interaktionen zu verwalten (z. B. SignalR) | Kann vollständig auf statischen Hosting-Plattformen laufen |
 | **Edge- oder CDN-Unterstützung** | Eingeschränkt: Erfordert einen Ursprungsserver für dynamisches Rendering. Moderne CDNs können einige dynamische Inhalte zwischenspeichern, sind jedoch weiterhin auf Serververarbeitung angewiesen | Eingeschränkt: Echtzeit-Updates hängen von Serververbindungen ab; moderne CDNs können die Bereitstellung beschleunigen | Vollständig unterstützt: Statische Ressourcen können global zwischengespeichert werden, während dynamische Inhalte clientseitig verarbeitet werden |
-| **[Progressive Enhancement](prog-enh.md)** | Vollständig unterstützt: Funktioniert auch in Umgebungen [ohne JavaScript](prog-eng-js) | Teilweise unterstützt: Erfordert JavaScript für Echtzeit-Interaktionen | Erfordert JavaScript für Funktionalitäten über den initialen Ladeprozess hinaus |
+| **[Progressive Enhancement](prog-enh-de.md)** | Vollständig unterstützt: Funktioniert auch in Umgebungen [ohne JavaScript](prog-eng-js-de.md) | Teilweise unterstützt: Erfordert JavaScript für Echtzeit-Interaktionen | Erfordert JavaScript für Funktionalitäten über den initialen Ladeprozess hinaus |
 
 **Anmerkungen:**
 
@@ -234,7 +234,7 @@ Diese Funktionen sind optional, aber wichtig für fortgeschrittene Anwendungsfä
 
 | Faktor | SSR (Statisches Server-Rendering) | Interaktiver Server | Interaktiver Client |
 |--------|-----------------------------------|---------------------|---------------------|
-| **[ARIA und Semantisches HTML](aria.md)** | **Vollständig unterstützt**: Markup ist statisch und folgt den Standards problemlos | **Vollständig unterstützt**: Der Server generiert zugängliches Markup, aber es ist wichtig, dynamische Updates sorgfältig zu behandeln | **Vollständig unterstützt**: Erfordert sorgfältige Implementierung, um sicherzustellen, dass dynamisch generierter Inhalt zugänglich bleibt |
+| **[ARIA und Semantisches HTML](aria-de.md)** | **Vollständig unterstützt**: Markup ist statisch und folgt den Standards problemlos | **Vollständig unterstützt**: Der Server generiert zugängliches Markup, aber es ist wichtig, dynamische Updates sorgfältig zu behandeln | **Vollständig unterstützt**: Erfordert sorgfältige Implementierung, um sicherzustellen, dass dynamisch generierter Inhalt zugänglich bleibt |
 | **Tastaturnavigation** | Unterstützt für grundlegende Interaktionen: Native Browserfunktionen wie `Tab`-Navigation und Formularübermittlung sind verfügbar. <br>**Einschränkungen:** Komplexe Interaktionen (z. B. benutzerdefinierte Tastenkombinationen oder Echtzeit-Updates) werden nicht unterstützt und erfordern den interaktiven Modus | **Unterstützt**, aber erfordert auf dem Server eine ordnungsgemäße Ereignisbehandlung für benutzerdefinierte Interaktionen | **Unterstützt**, erfordert jedoch eine ordnungsgemäße Ereignisbehandlung im clientseitigen Code für benutzerdefinierte Interaktionen |
 | **Kompatibilität mit Bildschirmlesern** | **Vollständig unterstützt**: Vorab gerenderte Inhalte funktionieren nahtlos mit Bildschirmlesern | **Unterstützt**, aber Echtzeit-Updates erfordern eine sorgfältige Implementierung, um sicherzustellen, dass Bildschirmleser Änderungen ankündigen | **Unterstützt**, erfordert jedoch eine sorgfältige Implementierung, um sicherzustellen, dass dynamisch aktualisierte Inhalte ordnungsgemäß von Bildschirmlesern angekündigt werden |
 
