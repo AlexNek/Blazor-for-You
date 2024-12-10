@@ -1,4 +1,5 @@
 # Blazor for developers
+**[German version](https://github.com/AlexNek/Blazor-for-You/blob/master/ForDevelopers/readme-de.md)**
 
 ## Overview
 In this article, we won't go over another basic Blazor tutorial. Many resources already cover that topic. Instead, we'll focus on specific challenges that developers might face when using the new rendering modes in .NET 8 and later.
