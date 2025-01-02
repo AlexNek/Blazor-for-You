@@ -38,6 +38,9 @@ Here are some practical examples demonstrating Blazor's capabilities:
 - **[Blazor.LogicalGame](https://github.com/AlexNek/Blazor.LogicalGame)**  
   A Blazor-based logical game that demonstrates Blazor’s potential in interactive client-side web games.
 
+- **[Blazor.BullsAndCows](https://github.com/AlexNek/Blazor-BullsAndCows)**
+ This project speeds up Blazor WASM's initial load by showing text immediately while the rest loads in the background. We use server-side prerendering for faster first loads and a client-side component to prevent early clicks. Demonstrated with a Bulls and Cows game 
+
 #### Authentication and Security
 - **[Blazor WebAssembly Standalone Authentication](https://github.com/AlexNek/BlazorWasmOidc)**  
   A standalone Blazor WebAssembly project implementing OIDC authentication, useful for understanding secure user authentication workflows in Blazor applications.
