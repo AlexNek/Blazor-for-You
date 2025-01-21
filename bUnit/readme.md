@@ -18,7 +18,7 @@ So why xUnit? It keeps things clean and organized, supports async tests right ou
 
 Other options like NUnit and MSTest? Sure, they’ve been around for a while, but they come with their own quirks. NUnit can struggle with managing test instances efficiently, and MSTest just doesn’t offer the same level of flexibility and ease of use. In the end, xUnit is simply a better fit for modern Blazor component testing.
 
-For a more detailed breakdown of why we chose xUnit over other options, see our comprehensive [xUnit vs. nUnit comparison](x-nUnit-Comparison.md).
+For a more detailed breakdown of why we chose xUnit over other options, see comprehensive [xUnit vs. nUnit comparison](x-nUnit-Comparison.md).
 
 
 ## bUnit
@@ -204,7 +204,7 @@ That sounds like a great idea! Extracting the bUnit limitations section into a s
 # Advanced Testing Scenarios using bUnit + FluentAssertions
 
 Now that you're familiar with the core concepts, let's explore more advanced testing techniques using `FluentAssertions` to make assertions clearer and easier to understand.
-> **Note**: Starting from version 8, [FluentAssertion](https://xceed.com/products/unit-testing/fluent-assertions) is no longer free of charge. Use version 7.x instead.
+> **Note**: Starting from version 8, [FluentAssertion](https://xceed.com/products/unit-testing/fluent-assertions) is no longer free of charge for everyone. Use version 7.x instead.
 
 ## Testing Component State Changes
 
@@ -342,16 +342,24 @@ public void ParameterComponent_MessageIsSet()
 For cascading values:
 
 ```csharp
-public class ParentComponent : ComponentBase
-{
+@* ParentComponent.razor *@
+@using Microsoft.AspNetCore.Components
+
+<CascadingValue Value="@SomeValue">
+    @ChildContent
+</CascadingValue>
+
+@code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-    public int SomeValue { get; set; }
-    protected override void OnInitialized()
-    {
-        SomeValue = 123;
-    }
+
+    [Parameter]
+    public int SomeValue { get; set; } = 123;
 }
+```
+```csharp
+// CascadingValueComponent.razor.cs
+using Microsoft.AspNetCore.Components;
 
 public class CascadingValueComponent : ComponentBase
 {
@@ -361,18 +369,30 @@ public class CascadingValueComponent : ComponentBase
 ```
 
 ```csharp
-[Fact]
-public void CascadingValueComponent_ValueIsCascaded()
-{
-    // Arrange
-    using var ctx = new TestContext();
-    var cut = ctx.RenderComponent<ParentComponent>(childComponent => {
-        childComponent.AddChildContent<CascadingValueComponent>();
-    });
+// Test
+using Bunit;
+using FluentAssertions;
+using Xunit;
 
-    // Assert
-    var component = cut.FindComponent<CascadingValueComponent>();
-    component.Instance.SomeValue.Should().Be(123);
+public class CascadingValueComponentTests
+{
+    [Fact]
+    public void ParentComponent_CascadingValue_ValueIsCascaded()
+    {
+        // Arrange
+        using var ctx = new TestContext();
+        var cut = ctx.RenderComponent<ParentComponent>(parameters =>
+        {
+            parameters.Add(p => p.ChildContent, childComponent =>
+            {
+                childComponent.AddChildContent<CascadingValueComponent>();
+            });
+        });
+        //Act
+        var component = cut.FindComponent<CascadingValueComponent>();
+        // Assert
+        component.Instance.SomeValue.Should().Be(123);
+    }
 }
 ```
 
