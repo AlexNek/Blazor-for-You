@@ -29,13 +29,11 @@ With bUnit, we can check component logic, rendering, and behavior quickly and ef
 
 But bUnit isn’t perfect. It doesn’t fully support CSS, so visual styling tests might not always behave as expected. Also, since it’s not a real browser, JavaScript execution is limited, which can sometimes be a challenge.
 
+> **Note:** [Learn more about bUnit limitations in detailed guide.](bUnit-limitations.md)  
+
 How does bUnit compare to other tools? Well, if you need fast, focused unit tests, bUnit is your best bet. If you’re looking to test the entire application flow, tools like Selenium, Playwright, or Cypress might be better suited—but they come with more overhead and slower execution.
 
 In short, bUnit is perfect for testing individual components in isolation, while Selenium and similar tools are better for full end-to-end testing when you need a complete browser experience.
-
-## Limitations
-While bUnit is a powerful tool for unit testing Blazor components, it does have some limitations, especially when dealing with layout-specific tests and complex JavaScript interactions. [Learn more about bUnit limitations in our detailed guide.](bUnit-limitations.md)  
-
 
 # Core bUnit Concepts and Setup
 
