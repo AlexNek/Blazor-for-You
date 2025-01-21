@@ -13,6 +13,8 @@ covering foundational concepts as well as practical applications through code ex
 2. **Part 2: Blazor for Developers ([EN](ForDevelopers/readme.md), [DE version](ForDevelopers/readme-de.md))** Focused on the technical aspects, this article dives into Blazor from a developer's perspective.
    It covers best practices, architecture considerations, and explores how Blazor enables full-stack C# development on the web, simplifying the development workflow and enhancing productivity.
 
+3. **Blazor Component Testing with bUnit**  ([EN](bUnit/readme.md)): This article introduces bUnit and xUnit for testing Blazor components, covering its purpose, benefits, and limitations when writing unit tests in Blazor.
+
 # How to use
 - [Logging](https://github.com/AlexNek/FolderObserver/blob/master/Docs/Logging.md)
   - [Graylog](https://github.com/AlexNek/Serilog.Sinks.GraylogGelf/blob/master/Documentation/graylog.md)
