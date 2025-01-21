@@ -18,7 +18,7 @@ So why xUnit? It keeps things clean and organized, supports async tests right ou
 
 Other options like NUnit and MSTest? Sure, they’ve been around for a while, but they come with their own quirks. NUnit can struggle with managing test instances efficiently, and MSTest just doesn’t offer the same level of flexibility and ease of use. In the end, xUnit is simply a better fit for modern Blazor component testing.
 
-For a more detailed breakdown of why we chose xUnit over other options, see our comprehensive [xUnit vs. nUnit comparison](xUnit-vs-nUnit-Blazor.md).
+For a more detailed breakdown of why we chose xUnit over other options, see our comprehensive [xUnit vs. nUnit comparison](x-nUnit-Comparison.md).
 
 
 ## bUnit
@@ -34,7 +34,7 @@ How does bUnit compare to other tools? Well, if you need fast, focused unit test
 In short, bUnit is perfect for testing individual components in isolation, while Selenium and similar tools are better for full end-to-end testing when you need a complete browser experience.
 
 ## Limitations
-While bUnit is a powerful tool for unit testing Blazor components, it does have some limitations, especially when dealing with layout-specific tests and complex JavaScript interactions. [Learn more about bUnit limitations in our detailed guide.](bunit-limitations.md)  
+While bUnit is a powerful tool for unit testing Blazor components, it does have some limitations, especially when dealing with layout-specific tests and complex JavaScript interactions. [Learn more about bUnit limitations in our detailed guide.](bUnit-limitations.md)  
 
 
 # Core bUnit Concepts and Setup
