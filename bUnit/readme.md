@@ -437,6 +437,7 @@ public async Task JsComponent_InvokeJs()
 ```
 
 By mocking `IJSRuntime`, you can isolate your component logic without requiring actual JavaScript execution.
+More bUnit examples can be found [here](https://github.com/AlexNek/TodoAppMaui)
 
 # Best Practices and Patterns
 

@@ -53,9 +53,11 @@ Here are some practical examples demonstrating Blazor's capabilities:
   - **[Blazor.SsrButton](https://github.com/AlexNek/Blazor.SsrButton)**  
   A button component for Blazor applications. It supports both server-side rendering (SSR) and client-side rendering, making it ideal for use in various Blazor project types.
 
-
 - **[BlazorSortableList](https://github.com/AlexNek/BlazorSortableList)**  
   A sortable list component using SortableJS, showing how Blazor can leverage JavaScript libraries to create dynamic UI elements.
+- **[TodoApp MAUI](https://github.com/AlexNek/TodoAppMaui)**  
+  This app shows how to make one codebase work on many different devices - Windows, Android, iOS, and even in a web browser.
+
 
 #### Framework Transition Examples
 - **[Angular to Blazor Examples](https://github.com/AlexNek/Angular2BlazorExamples)**  
