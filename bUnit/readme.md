@@ -29,7 +29,7 @@ With bUnit, we can check component logic, rendering, and behavior quickly and ef
 
 But bUnit isn’t perfect. It doesn’t fully support CSS, so visual styling tests might not always behave as expected. Also, since it’s not a real browser, JavaScript execution is limited, which can sometimes be a challenge.
 
-> **Note:** [Learn more about bUnit limitations in detailed guide.](bUnit-limitations.md)  
+> **Note:** [Learn more about bUnit limitations in detailed description.](bUnit-limitations.md)  
 
 How does bUnit compare to other tools? Well, if you need fast, focused unit tests, bUnit is your best bet. If you’re looking to test the entire application flow, tools like Selenium, Playwright, or Cypress might be better suited—but they come with more overhead and slower execution.
 
@@ -103,6 +103,11 @@ Once you've got your `TestContext` set up, you can render components in differen
 -   **Rendering with Markup:** Sometimes you'll need to render components within some additional markup. For this, bUnit provides the `Render` method. It lets you pass arbitrary Razor markup.
 
     ```csharp
+    private RenderFragment ConvertToFragment(string html) => builder =>
+    {
+        builder.AddMarkupContent(0, html);
+    };
+    
     [Fact]
     public void MyComponent_RenderInMarkup()
     {
@@ -110,10 +115,13 @@ Once you've got your `TestContext` set up, you can render components in differen
     using var ctx = new TestContext();
 
     // Act
-    var cut = ctx.Render(
-        @<p>
+    var htmlString = """
+        <p>
             <MyComponent Title="Hello" />
-            </p>);
+        </p>
+    """;
+
+    var cuut = ctx.Render(ConvertToFragment(htmlString));
 
     // Assert
     var component = cut.FindComponent<MyComponent>();
