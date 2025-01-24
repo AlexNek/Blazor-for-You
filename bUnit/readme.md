@@ -121,7 +121,7 @@ Once you've got your `TestContext` set up, you can render components in differen
         </p>
     """;
 
-    var cuut = ctx.Render(ConvertToFragment(htmlString));
+    var cut = ctx.Render(ConvertToFragment(htmlString));
 
     // Assert
     var component = cut.FindComponent<MyComponent>();
@@ -165,8 +165,9 @@ public void LifecycleComponent_LifecycleEvents()
     Assert.True(cut.Instance.OnParametersSetCalled);
     Assert.Equal(1, cut.Instance.ParametersSetCount);
 
-    cut.SetParametersAndRender(ComponentParameter.CreateParameter(nameof(LifecycleComponent.Value), 12));
-        Assert.Equal(2, cut.Instance.ParametersSetCount);
+    cut.SetParametersAndRender(ComponentParameter.CreateParameter(nameof(LifecycleComponent.Value), 2));
+    
+    Assert.Equal(2, cut.Instance.ParametersSetCount);
 
 }
 ```
@@ -229,7 +230,8 @@ public class CounterComponent : ComponentBase
         CurrentCount++;
     }
 }
-
+```
+```csharp
 [Fact]
 public void CounterComponent_IncrementCount()
 {
@@ -432,7 +434,7 @@ public async Task JsComponent_InvokeJs()
     using var ctx = new TestContext();
     var mockJsRuntime = new Mock<IJSRuntime>();
     mockJsRuntime.Setup(x => x.InvokeAsync<string>("someJsFunction", It.IsAny<object[]>()))
-.ReturnsAsync("Hello JS");
+      .ReturnsAsync("Hello JS");
     ctx.Services.AddSingleton<IJSRuntime>(mockJsRuntime.Object);
     var cut = ctx.RenderComponent<JsComponent>();
 
@@ -447,27 +449,29 @@ public async Task JsComponent_InvokeJs()
 By mocking `IJSRuntime`, you can isolate your component logic without requiring actual JavaScript execution.
 More bUnit examples can be found [here](https://github.com/AlexNek/TodoAppMaui)
 
-# Best Practices and Patterns
+# Best Practices and Patterns  
 
-Alright, now that we've got the fundamentals, let’s go over some best practices to keep your testing code organized, reliable, and performant.
+Now that we've covered the fundamentals, let's dive into some best practices to help keep your test code well-structured, reliable, and efficient.  
 
-## Test Organization and Structure
+## Test Organization and Structure  
 
-A well-organized test suite is just as important as well-structured application code. Follow these guidelines to maintain clarity and efficiency:
+A well-structured test suite is just as crucial as clean application code. Follow these guidelines to maintain clarity and efficiency:  
 
-- **One test class per component:** Maintain a separate test file for each component, ensuring similar tests are grouped together.
-- **Descriptive naming:** Use a consistent naming convention like `[ComponentName]_[Scenario]_[ExpectedBehavior]` (e.g., `CounterComponent_IncrementCount_IncrementsByOne`).
-- **Arrange, Act, Assert (AAA):** Structure your tests using the AAA pattern to improve readability and logical flow.
-- **Helper methods:** Extract repeated test setup logic into helper functions to minimize code duplication and enhance maintainability.
+- **One test class per component:** Keep tests for each component in a dedicated test file to ensure related tests are grouped logically and easy to find.  
+- **Descriptive naming:** Adopt a consistent naming convention such as `[Scenario]_[ExpectedOutcome]` (e.g., `IncrementCount_IncrementsByOne`). If tests span multiple components or need extra context, including the component name like `[Component]_[Scenario]_[ExpectedOutcome]` can enhance clarity, especially in test reports and logs.  
+- **Follow the Arrange-Act-Assert (AAA) pattern:** Structure your tests using the AAA approach to improve readability and logical separation of concerns.  
+- **Utilize helper methods:** Extract common setup logic into helper functions to reduce code duplication and make tests easier to maintain as the system evolves.  
+- **Centralize component creation:** Avoid creating the component under test inline within each test. Instead, use a dedicated factory or helper function to handle instantiation. This approach makes it easier to accommodate changes in component dependencies and configurations across all tests.  
 
-## Common Pitfalls and How to Avoid Them
+## Common Mistakes and How to Avoid Them  
 
-Avoid these common mistakes to keep your tests robust and maintainable:
+To make sure your tests stay strong and easy to maintain, watch out for these common mistakes:  
 
-- **Over-testing:** Test only the component’s behavior, not the framework or implementation details.
-- **Brittle tests:** Avoid testing component internals; instead, focus on verifying expected behavior through public APIs.
-- **Ignoring edge cases:** Ensure edge cases, error handling, and boundary conditions are covered to prevent unexpected failures.
+- **Testing too much:** Focus on testing what the component should do, not how the framework works or how things are built inside.  
+- **Fragile tests:** Don't check the internal details of the component. Instead, test what the component does by using its public methods and properties.  
+- **Forgetting special cases:** Make sure to test unusual situations, errors, and limits to avoid unexpected problems later.  
 
+By avoiding these mistakes, your tests will be more reliable and easier to update in the future.
 ## Performance Considerations
 
 bUnit tests are typically fast, but it's important to optimize for efficiency:
