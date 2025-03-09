@@ -196,6 +196,7 @@ public class MyComponentWithService: ComponentBase{
     }
 }
 ```
+
 ```csharp
 [Fact]
 public void MyComponentWithService_Render_ServiceDataIsSet() {
