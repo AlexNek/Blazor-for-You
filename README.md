@@ -15,6 +15,9 @@ covering foundational concepts as well as practical applications through code ex
 
 3. **Blazor Component Testing with bUnit**  ([EN](bUnit/readme.md),[DE version](bUnit/readme-de.md)): This article introduces bUnit and xUnit for testing Blazor components, covering its purpose, benefits, and limitations when writing unit tests in Blazor.
 
+4. **Understanding GraphQL in C#:**  ([EN version](https://github.com/AlexNek/Angular2BlazorExamples/blob/main/Docu/graphql.md)): This article explores GraphQL’s differences from REST, dives into the best C# libraries for server and client implementations with an expanded comparison table, and includes practical examples to illustrate their use.
+
+
 # How to use
 - [Logging](https://github.com/AlexNek/FolderObserver/blob/master/Docs/Logging.md)
   - [Graylog](https://github.com/AlexNek/Serilog.Sinks.GraylogGelf/blob/master/Documentation/graylog.md)
@@ -23,11 +26,8 @@ covering foundational concepts as well as practical applications through code ex
 - [Auth0](https://github.com/AlexNek/BlazorWasmOidc/blob/master/Docu/auth0.md)
 - [Azure AD](https://github.com/AlexNek/BlazorWasmOidc/blob/master/Docu/azuread.md)
 - [Unit tests](https://github.com/AlexNek/FolderObserver/blob/master/Docs/UnitTests.md)
-
-### In the Works
-- [Blazor:Implement Custom Authentication](Authentication.md)
-- [Blazor localization steps](Localization.md)
-- [GraphQL for Blazor](graphql.md)
+- [Blazor:Implement Custom Authentication](https://github.com/AlexNek/Angular2BlazorExamples/blob/main/Docu/Authentication.md)
+- [Blazor localization steps](https://github.com/AlexNek/Angular2BlazorExamples/blob/main/Docu/Localization.md)
 
 ### Examples
 
