@@ -57,6 +57,8 @@ Here are some practical examples demonstrating Blazor's capabilities:
   A sortable list component using SortableJS, showing how Blazor can leverage JavaScript libraries to create dynamic UI elements.
 - **[TodoApp MAUI](https://github.com/AlexNek/TodoAppMaui)**  
   This app shows how to make one codebase work on many different devices - Windows, Android, iOS, and even in a web browser.
+- **[Blazor.Messaging]([https://github.com/AlexNek/TodoAppMaui](https://github.com/AlexNek/Blazored.Messaging))**  
+  A small and easy-to-use messaging tool, designed mainly for Blazor apps but can work with other apps too. It uses a publish-subscribe (pub/sub) pattern to help different parts of your app communicate easily.
 
 
 #### Framework Transition Examples
